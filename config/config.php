@@ -27,7 +27,7 @@ class Conf
     const SESSION_PREFIX = 'rplan_';
     const SITE_TITLE = 'Events';
     const APPVERSION = '1.1';
-    const SITE_LANG = 'de-de';
+    const SITE_LANG = 'en-us';
     // session timeout in minutes
     const SESSION_TIMEOUT = 10;
 }

@@ -2,6 +2,13 @@
 
 a simple PHP (MVC) application to manage private events
 
+## Features
+
+- Manage users
+- Manage events
+- Share event URI via QR code
+- Let users contribute to event (Tasks, Foodlist)
+
 
 # Requirements
 

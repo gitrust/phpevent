@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+    web:
+        image: jakubboucek/lamp-devstack-php
+        environment:
+            APACHE_DOCUMENT_ROOT: "/var/www/html/public"
+            APP_DEBUG: 1
+            TZ: Europe/Berlin
+            PHP_MEMORY_LIMIT: 1G
+        ports:
+            - "127.0.0.1:8080:80"
+        restart: always
+        volumes:
+            - "${PROJECT_FOLDER}:/var/www/html"
+        networks:
+          - backend
+    db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: pass
+        MYSQL_DATABASE: phpevent
+        MYSQL_USER: phpevent
+        MYSQL_PASSWORD: phpevent
+      expose:
+        - 3306
+      volumes:
+        - "${SQL_SCRIPTS_FOLDER}:/docker-entrypoint-initdb.d"
+      networks:
+        - backend
+        
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      environment:
+        PMA_ARBITRARY: 1
+        PMA_PORT: 3306
+        PMA_HOST: "db"
+        MYSQL_DATABASE: phpevent
+        MYSQL_ROOT_PASSWORD: pass
+        MYSQL_USER: phpevent
+        MYSQL_PASSWORD: phpevent
+      restart: always
+      ports:
+       - "8081:80"
+      networks:
+        - backend
+        
+volumes: {}
+networks:
+  backend:

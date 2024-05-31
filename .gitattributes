@@ -1,0 +1,38 @@
+*		text=auto
+
+# batch files
+
+*.sh		text eol=lf
+*.bat		text eol=crlf
+
+# Documents
+*.md		text
+Dockerfile  text
+Makefile    text
+
+
+# Program files / Libraries
+
+*.css		text
+*.df		text
+*.htm		text
+*.html		text
+*.java		text
+*.js		text
+*.json		text
+*.jsp		text
+*.jspf		text
+*.properties	text
+*.tld		text
+*.txt		text
+*.xml		text
+*.svg           text
+*.webmanifest   text
+*.php       text
+*.sql       text
+*.yml       text
+*.lock      text
+
+
+.htaccess   text
+*.ini       text
